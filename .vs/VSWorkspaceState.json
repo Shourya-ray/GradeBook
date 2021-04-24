@@ -3,8 +3,10 @@
     "",
     "\\src",
     "\\src\\GradeBook",
-    "\\src\\GradeBook\\bin"
+    "\\src\\GradeBook\\bin",
+    "\\test",
+    "\\test\\GradeBook.test"
   ],
-  "SelectedNode": "\\src\\GradeBook\\Program.cs",
+  "SelectedNode": "\\test\\GradeBook.test\\GradeBook.test.sln",
   "PreviewInSolutionExplorer": false
 }

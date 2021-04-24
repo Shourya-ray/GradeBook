@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-GradeBook.test",
+      "appliesTo": "test/GradeBook.test/GradeBook.test.csproj",
+      "type": "msbuild"
+    }
+  ]
+}

@@ -13,4 +13,3 @@ D:\gradeBook\src\GradeBook\obj\Debug\net5.0\GradeBook.dll
 D:\gradeBook\src\GradeBook\obj\Debug\net5.0\ref\GradeBook.dll
 D:\gradeBook\src\GradeBook\obj\Debug\net5.0\GradeBook.pdb
 D:\gradeBook\src\GradeBook\obj\Debug\net5.0\GradeBook.genruntimeconfig.cache
-D:\gradeBook\src\GradeBook\obj\Debug\net5.0\GradeBook.csprojAssemblyReference.cache

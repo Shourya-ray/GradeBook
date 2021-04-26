@@ -11,6 +11,7 @@ namespace GradeBook
         public double avg;
         public double high;
         public double low;
+        public char Letter;
 
 
 

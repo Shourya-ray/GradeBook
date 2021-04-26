@@ -15,8 +15,13 @@ namespace GradeBook
 			
 				public void AddGrades(double Grades)
 				{
-				grade.Add(Grades);
-				}
+						if (Grades <= 100 && Grades >= 0)
+						{
+                grade.Add(Grades);
+						}
+						else
+						{ throw new ArgumentException("Invalid Grade"); }
+        }
 				public Stats GetStats()
 				{ var result = new Stats();
 					  result.avg = 0.0;
@@ -30,7 +35,25 @@ namespace GradeBook
 
 						}
 							result.avg /=  grade.Count;
+						switch (result.avg)
+						{
+						case var data when data > 90.0:
+							result.Letter = 'a';
+							break;
+						case var data when data > 80.0:
+							result.Letter = 'b';
+							break;
+						case var data when data > 70.0:
+							result.Letter = 'c';
+							break;
+						case var data when data > 60.0:
+							result.Letter = 'd';
+							break;
+						default:
+							result.Letter = 'f';
+							break;
 
+			}
 
 			return result;
 

@@ -4,9 +4,31 @@ using GradeBook;
 
 namespace GradeBook.test
 {
+    public delegate string WriteLogDelegate(String log);
     public class BookTest2
     {
+      int  count=0;
+        //delegate
+        [Fact]
+        public void WritelogdelegateTest()
+        { //arrange
 
+            WriteLogDelegate log;
+            log = Logmessage;
+            log += Logmessage;
+            var result = log("Delegate test");
+            //assert 
+            Assert.Equal(2, count);
+        
+            //Assert.Equal("Book 2", Book2.name);
+            //Assert.NotSame(Book1, Book2);
+
+        }
+        public string Logmessage(String message)
+        {
+            count++;
+            return message;
+        }
         [Fact]
         public void StringareRef()
         { //arrange

@@ -8,6 +8,11 @@ namespace GradeBook
         {
 
             Book Br= new Book("Scotts Grade Book");
+
+            Br.GradeAdded += OnGradeAdded;
+            Br.GradeAdded += OnGradeAdded;
+            Br.GradeAdded -= OnGradeAdded;
+            Br.GradeAdded += OnGradeAdded;
             //Br.AddGrades(24);
             //Br.AddGrades(55);
             //Br.AddGrades(17);
@@ -35,7 +40,7 @@ namespace GradeBook
 
             var Result = Br.GetStats();
             //List<double> Grades =new <double>();
-            Console.WriteLine("Hello World!");
+            Console.WriteLine($"Gardes of {Br.Name}");
             Console.WriteLine($"The Avg of Grades is {Result.avg} ");
 
             Console.WriteLine($"The Highest of Grades is {Result.high} ");
@@ -43,5 +48,8 @@ namespace GradeBook
             Console.WriteLine($"The lowest of Grades is {Result.low} ");
             Console.WriteLine($"The Letter of Grades is {Result.Letter} ");
         }
+
+        static void OnGradeAdded(object sender, EventArgs e)
+        { Console.WriteLine("Grade was added"); }
     }
 }

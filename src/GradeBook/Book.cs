@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 namespace GradeBook
 	{ 
+
+			public  delegate void GardeAddedDelegate(object sender,EventArgs args);
 			public class Book
 			{
 				public Book( string Name)
@@ -17,11 +19,15 @@ namespace GradeBook
 				{
 						if (Grades <= 100 && Grades >= 0)
 						{
-                grade.Add(Grades);
+						grade.Add(Grades);
+						if (GradeAdded !=null)
+						{ GradeAdded(this,new EventArgs()); }
 						}
 						else
 						{ throw new ArgumentException("Invalid Grade"); }
-        }
+				   }
+
+				public event GardeAddedDelegate GradeAdded;
 				public Stats GetStats()
 				{ var result = new Stats();
 					  result.avg = 0.0;
@@ -60,7 +66,21 @@ namespace GradeBook
 		}
 				private List<double> grade;
 				public string name;
+		        public string Name
+				{
+					get 
+					{
+						return name;
+					}
 
-        
-    }
+					set
+					{
+						 name= Name;
+					}
+
+
+
+				}
+
+			}
 	}

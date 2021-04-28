@@ -7,17 +7,33 @@ namespace GradeBook
         static void Main(string[] args)
         {
 
-            Book Br= new Book("Scotts Grade Book");
+            //Book Br = new Book("Scotts Grade Book");
 
+            IBook Br = new DiskBook("Scotts Grade Book");
             Br.GradeAdded += OnGradeAdded;
-            Br.GradeAdded += OnGradeAdded;
-            Br.GradeAdded -= OnGradeAdded;
-            Br.GradeAdded += OnGradeAdded;
+            //Br.GradeAdded += OnGradeAdded;
+            //Br.GradeAdded -= OnGradeAdded;
+            //Br.GradeAdded += OnGradeAdded;
             //Br.AddGrades(24);
             //Br.AddGrades(55);
             //Br.AddGrades(17);
             //Br.AddGrades(87);
             //Br.AddGrades(100);
+            EnterGrades(Br);
+
+            var Result = Br.GetStats();
+            //List<double> Grades =new <double>();
+            Console.WriteLine($"Gardes of {Br.Name}");
+            Console.WriteLine($"The Avg of Grades is {Result.avg} ");
+
+            Console.WriteLine($"The Highest of Grades is {Result.high} ");
+
+            Console.WriteLine($"The lowest of Grades is {Result.low} ");
+            Console.WriteLine($"The Letter of Grades is {Result.Letter} ");
+        }
+
+        private static void EnterGrades(IBook Br)
+        {
             var input = "";
             Double Grade;
             while (true)
@@ -37,16 +53,6 @@ namespace GradeBook
                 { Console.WriteLine(ex.Message); }
 
             }
-
-            var Result = Br.GetStats();
-            //List<double> Grades =new <double>();
-            Console.WriteLine($"Gardes of {Br.Name}");
-            Console.WriteLine($"The Avg of Grades is {Result.avg} ");
-
-            Console.WriteLine($"The Highest of Grades is {Result.high} ");
-
-            Console.WriteLine($"The lowest of Grades is {Result.low} ");
-            Console.WriteLine($"The Letter of Grades is {Result.Letter} ");
         }
 
         static void OnGradeAdded(object sender, EventArgs e)

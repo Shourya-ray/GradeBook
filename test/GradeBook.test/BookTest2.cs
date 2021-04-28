@@ -62,7 +62,7 @@ namespace GradeBook.test
 
 
             //assert 
-            Assert.Equal("NewBook", Book1.name);
+            Assert.Equal("NewBook", Book1.Name);
             //Assert.Equal("Book 2", Book2.name);
             //Assert.NotSame(Book1, Book2);
 
@@ -83,7 +83,7 @@ namespace GradeBook.test
         
 
             //assert 
-            Assert.Equal("Book 1", Book1.name);
+            Assert.Equal("Book 1", Book1.Name);
             //Assert.Equal("Book 2", Book2.name);
             //Assert.NotSame(Book1, Book2);
 
@@ -110,7 +110,7 @@ namespace GradeBook.test
             //var result = Book.GetStats();
 
             //assert 
-            Assert.Equal("NewBook", Book1.name);
+            Assert.Equal("NewBook", Book1.Name);
             //Assert.Equal("Book 2", Book2.name);
             //Assert.NotSame(Book1, Book2);
 
@@ -118,7 +118,7 @@ namespace GradeBook.test
 
         private void SetName(string v, Book book)
         {
-            book.name = v;
+            book.Name = v;
         }
 
         [Fact]
@@ -136,8 +136,8 @@ namespace GradeBook.test
             //var result = Book.GetStats();
 
             //assert 
-            Assert.Equal("Book 1",Book1.name);
-            Assert.Equal("Book 2", Book2.name);
+            Assert.Equal("Book 1",Book1.Name);
+            Assert.Equal("Book 2", Book2.Name);
             Assert.NotSame(Book1, Book2);
         }
 

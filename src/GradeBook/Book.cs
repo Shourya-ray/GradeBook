@@ -4,18 +4,39 @@ using System.Collections.Generic;
 
 
 namespace GradeBook
-	{ 
+{ 
 
 			public  delegate void GardeAddedDelegate(object sender,EventArgs args);
-			public class Book
-			{
-				public Book( string Name)
+    public abstract class BookBase : NamedObject, IBook
+	{
+        protected BookBase(string name): base(name)
+        {
+           
+        }
+
+        public abstract event GardeAddedDelegate GradeAdded;
+
+        public abstract void AddGrades(double grade);
+
+		public abstract Stats GetStats();
+       
+    }
+	public interface IBook
+	{
+		void AddGrades(double grade);
+		Stats GetStats();
+		string Name { get; set; }
+		event GardeAddedDelegate GradeAdded;
+	}
+    public class Book : BookBase 
+	{
+				public Book( string name) :base(name)
 				{
 					grade = new List<double>();
-					 name =  Name ;
+					Name = name;
 				}
 			
-				public void AddGrades(double Grades)
+				public override void AddGrades(double Grades)
 				{
 						if (Grades <= 100 && Grades >= 0)
 						{
@@ -27,52 +48,21 @@ namespace GradeBook
 						{ throw new ArgumentException("Invalid Grade"); }
 				   }
 
-				public event GardeAddedDelegate GradeAdded;
-				public Stats GetStats()
+				public override event GardeAddedDelegate GradeAdded;
+				public override Stats GetStats()
 				{ var result = new Stats();
-					  result.avg = 0.0;
-   					  result.high = Double.MinValue;
-			          result.low = Double.MaxValue;
+					  
 						foreach (var number in grade)
 						{
-							result.high = Math.Max(result.high, number);
-							result.low = Math.Min(result.low, number);
-							result.avg = result.avg + number;
+
+						result.add(number);
 
 						}
-							result.avg /=  grade.Count;
-						switch (result.avg)
-						{
-						case var data when data > 90.0:
-							result.Letter = 'a';
-							break;
-						case var data when data > 80.0:
-							result.Letter = 'b';
-							break;
-						case var data when data > 70.0:
-							result.Letter = 'c';
-							break;
-						case var data when data > 60.0:
-							result.Letter = 'd';
-							break;
-						default:
-							result.Letter = 'f';
-							break;
+						
+						
 
-			}
+						return result;
 
-			return result;
-
-		}
-				private List<double> grade;
-				
-		        public string Name
-				{
-					get;
-					set;	
-					
-
+				} private List<double> grade;
 				}
-
-			}
-	}
+    }
